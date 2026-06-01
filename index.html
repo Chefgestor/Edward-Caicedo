@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Presentación Digital - Chef Edward Caicedo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Montserrat', sans-serif; -webkit-font-smoothing: antialiased; background-color: #f0f4f8; }
+        .card-container { width: 100%; margin: 0; min-height: 100vh; display: flex; flex-direction: column; background-color: #ffffff; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+        @media (min-width: 450px) { .card-container { max-width: 420px; margin: 2rem auto; min-height: calc(100vh - 4rem); border-radius: 24px; overflow: hidden; } }
+        .main-bg { background-image: url('https://i.postimg.cc/c1P98VsX/foto-chef-gestor-3.jpg'); background-size: cover; background-position: center; height: 200px; }
+        .content-section { background: #10A37F; margin-top: -60px; border-top-left-radius: 50px; border-top-right-radius: 50px; position: relative; padding-bottom: 2rem; flex-grow: 1; }
+        .profile-container { position: relative; width: 150px; height: 150px; margin-top: -105px; }
+        .profile-pic { width: 100%; height: 100%; border: 5px solid #10A37F; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .verification-badge { position: absolute; top: 5px; right: 5px; background-color: #3b82f6; color: white; width: 32px; height: 32px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.15); }
+        .action-btn { background-color: #ee9b00; color: white; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; }
+        .action-btn:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(238, 155, 0, 0.4); }
+        .social-btn { background-color: rgba(255, 255, 255, 0.1); color: white; transition: all 0.3s ease; cursor: pointer; }
+        .social-btn:hover { background-color: rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+        .footer-banner { background-color: #e9d8a6; color: #001219; }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 37, 46, 0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(5px); }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: #ffffff; border-radius: 20px; max-width: 90%; width: 500px; max-height: 90vh; display: flex; flex-direction: column; position: relative; transform: scale(0.95) translateY(20px); transition: transform 0.3s ease, opacity 0.3s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 5px solid #e9d8a6; opacity: 0; }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
+        .modal-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid #f0f4f8; position: relative; }
+        .modal-header-title { font-size: 1.5rem; font-weight: 600; text-align: center; color: #10A37F; max-width: calc(100% - 90px); margin: 0 auto; }
+        .modal-header-title::after { content: ''; display: block; width: 50px; height: 4px; background-color: #ee9b00; margin: 8px auto 0; border-radius: 2px; }
+        .modal-body { padding: 1.5rem; overflow-y: auto; flex-grow: 1; }
+        .modal-close-btn { position: absolute; top: 0.75rem; right: 0.75rem; background: #f0f4f8; color: #10A37F; border-radius: 99px; width: 36px; height: 36px; cursor: pointer; border: none; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .modal-close-btn:hover { background-color: #e9d8a6; transform: rotate(90deg); }
+        .service-item { border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+    </style>
+</head>
+<body class="bg-gray-200">
+    <div class="card-container">
+        <div class="main-bg"></div>
+        <div class="content-section">
+            <div class="flex flex-col items-center px-6 text-center">
+                <div class="profile-container">
+                    <img src="https://i.postimg.cc/bwZFNFxD/logo-chef-gestor-1.jpg" alt="Logo Chef Edward Caicedo" class="profile-pic object-cover rounded-full">
+                    <div class="verification-badge"><i class="fas fa-check text-sm"></i></div>
+                </div>
+                <h1 class="text-3xl font-bold text-white mt-4 tracking-tight">Chef Edward Caicedo</h1>
+                <p class="text-lg text-white opacity-80 mt-1">Chef Consultor</p>
+                <p class="text-white opacity-90 mt-4 max-w-sm italic">Consultoría Personalizada para Restaurantes y Emprendimientos gastronomicos.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 w-full max-w-xs mx-auto mt-8">
+                    <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20agendar%20una%20cita." target="_blank" class="action-btn flex-1 gap-3 font-semibold py-3 rounded-full text-lg"><i class="fas fa-calendar-alt"></i><span>Agendar Cita</span></a>
+                    <a href="tel:3216159827" class="action-btn flex-1 gap-3 font-semibold py-3 rounded-full text-lg"><i class="fas fa-phone-alt"></i><span>Llamar</span></a>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-3 w-full max-w-xs mx-auto mt-8">
+                    <div id="services-btn" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl cursor-pointer"><i class="fas fa-concierge-bell text-2xl"></i><span class="text-xs mt-2 font-medium">Servicios</span></div>
+                    <div id="how-works-btn" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl cursor-pointer"><i class="fas fa-question-circle text-2xl"></i><span class="text-xs mt-2 font-medium text-center px-1">¿Cómo funciona?</span></div>
+                    <div id="qr-code-btn" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl cursor-pointer"><i class="fas fa-qrcode text-2xl"></i><span class="text-xs mt-2 font-medium">Código QR</span></div>
+                    <a href="https://web.facebook.com/ChefEdwardCaicedo" target="_blank" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl"><i class="fab fa-facebook text-2xl"></i><span class="text-xs mt-2 font-medium">Facebook</span></a>
+                    <a href="https://www.instagram.com/chefedwardcaicedo?utm_source=qr&igsh=MWNvdnhsOXRieXBpOQ==" target="_blank" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl"><i class="fab fa-instagram text-2xl"></i><span class="text-xs mt-2 font-medium">Instagram</span></a>
+                    <a href="https://wa.me/573216159827" target="_blank" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl"><i class="fab fa-whatsapp text-2xl"></i><span class="text-xs mt-2 font-medium">WhatsApp</span></a>
+                    <div id="save-contact-btn" class="social-btn flex flex-col justify-center items-center py-3 w-full h-20 rounded-2xl col-start-2"><i class="fas fa-save text-2xl"></i><span class="text-xs mt-2 font-medium">Guardar</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-banner text-center py-4 px-4 font-semibold">
+            <p>De la Cocina a la Rentabilidad</p>
+        </div>
+    </div>
+
+    <!-- Modal Servicios -->
+    <div id="services-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-header-title">Mis Servicios</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body text-gray-700">
+                <div class="service-item flex-col items-center text-center">
+                    <img src="https://i.postimg.cc/brgbC001/imagen-1.jpg" alt="Diseño de Menú" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Diseño e Ingeniería de Menú</h4>
+                        <p class="text-xs italic">Optimizamos tu propuesta gastronomica equilibrando tendencias culinarias, creando menús rentables, atractivos y estratégicos para aumentar las ventas y mejorar la experiencia del cliente.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20consultar%20sobre%20el%20Diseño%20e%20Ingeniería%20de%20Menú." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Crea Tu Menú</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-gray-50">
+                    <img src="https://i.postimg.cc/BbqvtrWS/Imagen-2.jpg" alt="Asesorías" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Asesorías y Auditorías</h4>
+                        <p class="text-xs italic">Evaluamos tus procesos operativos, identificamos oportunidades de mejora y proponemos soluciones prácticas para optimizar resultados.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20consultar%20sobre%20Asesorías%20y%20Auditorías." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Consultar ahora</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-purple-50">
+                    <img src="https://i.postimg.cc/25MckYZ0/Imagen-3.jpg" alt="Capacitación" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Capacitación en Nuevas Recetas</h4>
+                        <p class="text-xs italic">Entrenamiento practico para tu equipo, diseño y estandarización de nuevos platillos y técnicas de vanguardia para refrescar tu oferta gastronómica.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20más%20información%20sobre%20Capacitación%20en%20Nuevas%20Recetas." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Aprende Nuevas Recetas</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-red-50">
+                    <img src="https://i.postimg.cc/Bn11WG4z/Imagen-4.jpg" alt="Costos" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Control de Costos</h4>
+                        <p class="text-xs italic">Implementamos herramientas para controlar gastos, calcular costos reales y proteger la rentabilidad de cada producto.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20más%20información%20sobre%20el%20Control%20de%20Costos." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Controlar Costos</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-blue-50">
+                    <img src="https://i.postimg.cc/0Qg4GSCD/Imagen-5.jpg" alt="Finanzas" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Administración Financiera</h4>
+                        <p class="text-xs italic">Organizamos y analizamos las finanzas de tu negocio para mejorar el flujo de caja y toma de decisiones. Manejo de sistema POS, y organización contable.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20agendar%20una%20cita%20sobre%20Administración%20Financiera." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Agendar Cita</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-yellow-50">
+                    <img src="https://i.postimg.cc/BnzZ0hJY/Imagen-6.jpg" alt="Casa" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Arma tu Negocio Desde Casa</h4>
+                        <p class="text-xs italic">Te guiamos paso a paso para crear y estructurar un negocio gastronómico rentable desde tu hogar.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20más%20información%20sobre%20el%20servicio%20Arma%20tu%20Negocio%20Desde%20Casa." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Empezar Proyecto</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-orange-50">
+                    <img src="https://i.postimg.cc/hPH3RxH6/imagen-7.jpg" alt="Inventario" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Control de Inventarios y Compras</h4>
+                        <p class="text-xs italic">Optimizamos inventarios y procesos de compra para reducir pérdidas, evitar faltantes y mejorar la rentabilidad.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20más%20información%20sobre%20Control%20de%20Inventarios%20y%20Compras." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Mas Informacion</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-green-50">
+                    <img src="https://i.postimg.cc/cL2N5q5H/imagen-8.jpg" alt="Ventas" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Estrategia de Ventas y Atencion al Cliente</h4>
+                        <p class="text-xs italic">Desarrollamos estrategias para aumentar, fidelizar clientes y mejorar la experiencia del servicio por medio de capacitaciones.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20más%20información%20sobre%20Estrategia%20de%20Ventas%20y%20Atención%20al%20Cliente." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Potencia tus ventas</a>
+                    </div>
+                </div>
+                <div class="service-item flex-col items-center text-center bg-sky-50">
+                    <img src="https://i.postimg.cc/SKPnRgdk/imagen-9.jpg" alt="Redes" class="w-full max-w-[150px] rounded-lg shadow-sm mb-2">
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Manejo de Redes Sociales</h4>
+                        <p class="text-xs italic">Genaramos tu presencia en Instagram, Facebook y Google para fortalecer tu marca y atraer nuevos clientes.</p>
+                        <a href="https://wa.me/573216159827?text=Hola,%20quisiera%20más%20información%20sobre%20el%20Manejo%20de%20Redes%20Sociales." target="_blank" class="block mt-3 bg-[#10A37F] text-white text-center py-2 px-4 rounded-full text-xs font-bold hover:bg-[#0d8a6a] transition-all">Impulsa Tus Redes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal ¿Cómo funciona? -->
+    <div id="how-works-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-header-title">¿Cómo Trabajamos?</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body text-gray-700 space-y-4">
+                <p class="text-sm italic text-gray-600 mb-6">Todo se adapta a tu tiempo, tu presupuesto y las necesidades específicas de tu proyecto.</p>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#10A37F] text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Reunión Inicial</h4>
+                        <p class="text-sm">Nos reunimos (por videollamada o llamada) para conocer tu negocio, tus dificultades y tus metas.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#10A37F] text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Análisis Estratégico</h4>
+                        <p class="text-sm">Analizamos toda la información que me compartas (costos, menú, procesos, ventas, etc.).</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#10A37F] text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Diagnóstico y Plan</h4>
+                        <p class="text-sm">Te entregamos mi diagnóstico y trabajamos juntos en las soluciones.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-[#10A37F] text-white rounded-full flex items-center justify-center font-bold text-lg">4</div>
+                    <div>
+                        <h4 class="font-bold text-[#10A37F]">Seguimiento</h4>
+                        <p class="text-sm">Te doy seguimiento para asegurar que pongas en práctica todo y veas resultados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Código QR -->
+    <div id="qr-modal" class="modal-overlay">
+        <div class="modal-content" style="width: 300px;">
+            <div class="modal-header">
+                <h2 class="modal-header-title">Código QR</h2>
+                <button class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body flex flex-col items-center">
+                <div id="qrcode"></div>
+                <p class="text-sm mt-4 text-gray-600 text-center">Escanea para ir a la tarjeta digital.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Modales
+        const servicesModal = document.getElementById('services-modal');
+        const howWorksModal = document.getElementById('how-works-modal');
+        const qrModal = document.getElementById('qr-modal');
+
+        document.getElementById('services-btn')?.addEventListener('click', () => servicesModal.classList.add('active'));
+        document.getElementById('how-works-btn')?.addEventListener('click', () => howWorksModal.classList.add('active'));
+        document.getElementById('qr-code-btn')?.addEventListener('click', () => qrModal.classList.add('active'));
+        
+        servicesModal.querySelector('.modal-close-btn')?.addEventListener('click', () => servicesModal.classList.remove('active'));
+        howWorksModal.querySelector('.modal-close-btn')?.addEventListener('click', () => howWorksModal.classList.remove('active'));
+        qrModal.querySelector('.modal-close-btn')?.addEventListener('click', () => qrModal.classList.remove('active'));
+        
+        // Cierre al hacer clic fuera
+        window.addEventListener('click', (e) => {
+            if(e.target === servicesModal) servicesModal.classList.remove('active');
+            if(e.target === howWorksModal) howWorksModal.classList.remove('active');
+            if(e.target === qrModal) qrModal.classList.remove('active');
+        });
+
+        // Generar Código QR
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://chefgestor.github.io/Edward-Caicedo/",
+            width: 200,
+            height: 200,
+            colorDark : "#10A37F",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        document.getElementById('save-contact-btn')?.addEventListener('click', () => {
+            const vCard = "BEGIN:VCARD\nVERSION:3.0\nFN:Chef Edward Caicedo\nTEL:+573216159827\nEND:VCARD";
+            const blob = new Blob([vCard], { type: "text/vcard" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = "ChefEdwardCaicedo.vcf"; a.click();
+        });
+    </script>
+</body>
+</html>
